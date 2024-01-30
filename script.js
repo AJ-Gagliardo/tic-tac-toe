@@ -63,6 +63,9 @@ function resetBoard(){
 
 let activePlayer = 1;
 
+
+
+
 function select(row, column){
 
 if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
@@ -107,4 +110,22 @@ function checkRows() {
         }
     }
     return 0; // No winner in rows
+};
+
+
+
+function checkColumns(){
+    for(let col=0;col<Gameboard.columns;col++){
+        if(
+
+            Gameboard.board[0][col] !==0 &&
+            Gameboard.board[0][col] === Gameboard.board[1][col] &&
+            Gameboard.board[0][col] === Gameboard.board[2][col] 
+            ){
+                return Gameboard.board[0][col];
+            }
+
+    }
+    return 0;
+
 }
