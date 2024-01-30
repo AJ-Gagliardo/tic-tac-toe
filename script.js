@@ -129,3 +129,22 @@ function checkColumns(){
     return 0;
 
 }
+
+function checkDiagonal(){
+    if(
+        Gameboard.board[0][0] !==0 &&
+        Gameboard.board[0][0] === Gameboard.board[1][1] &&
+        Gameboard.board[0][0] === Gameboard.board[2][2]
+    ){
+        return Gameboard.board[0][0];
+    }
+    else if(
+        Gameboard.board[0][2] !== 0 &&
+        Gameboard.board[0][2] == Gameboard.board[1][1] &&
+        Gameboard.board[0][2] == Gameboard.board[2][0]
+    ){
+        return Gameboard.board[0][2]
+    }
+
+
+}
