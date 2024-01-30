@@ -84,19 +84,7 @@ else{
 
 
 
-// How the gae ends + Something to reset the cells once the game finishes
-
-// win conditios
-//1 row is filled with same token
-
-// function checkRows(){
-//     for(i=0; i>rows;i++){
-//         Gameboard.board[i][0]
-//     }
-// }
-
-
-// Gameboard.board[0][]
+/
 
 
 function checkRows() {
@@ -148,3 +136,11 @@ function checkDiagonal(){
 
 
 }
+
+// ok now i have functions for win conditions 
+
+// will have to insert it on the ed of turns to automatically check
+
+// also i guess i am ready for putting ui inside this
+
+//wondering if its a good idea to do factories for ui, will have to check that later
