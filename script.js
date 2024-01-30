@@ -55,7 +55,20 @@ function resetBoard(){
     }
 }
 
+//  function to mark one of the cells
+
+let activePlayer = 1;
+
+function select(row, column){
+
+Gameboard.board[row][column] = activePlayer;
+
+activePlayer===1 ? activePlayer = 2 :  activePlayer =1
+
+}
 
 // Do something taht checks if that cell si empty or not
+
+// something to take turns
 
 // How the gae ends + Something to reset the cells once the game finishes
