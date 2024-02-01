@@ -84,7 +84,6 @@ else{
 
 
 
-/
 
 
 function checkRows() {
@@ -137,10 +136,28 @@ function checkDiagonal(){
 
 }
 
-// ok now i have functions for win conditions 
-
-// will have to insert it on the ed of turns to automatically check
 
 // also i guess i am ready for putting ui inside this
+
+
+//  Players
+
+// function players{
+//     player
+// }
+
+// function playerInfo(name, controller){
+//     return{
+//         name:name,
+//         controller:controller
+//     }
+// }
+
+// function createPlayer(name, controller){
+//     this.name: name,
+//     this.controller: controller
+
+// }
+
 
 //wondering if its a good idea to do factories for ui, will have to check that later
