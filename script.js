@@ -142,22 +142,16 @@ function checkDiagonal(){
 
 //  Players
 
-// function players{
-//     player
-// }
 
-// function playerInfo(name, controller){
-//     return{
-//         name:name,
-//         controller:controller
-//     }
-// }
+function createPlayer(name, controller){
+    return {
+        name,
+    controller
+}
+}
 
-// function createPlayer(name, controller){
-//     this.name: name,
-//     this.controller: controller
+const player1 = createPlayer('Anto', 'human');
 
-// }
 
 
 //wondering if its a good idea to do factories for ui, will have to check that later
