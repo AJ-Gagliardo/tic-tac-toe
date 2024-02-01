@@ -1,7 +1,39 @@
+/* Pallete 1 */
+
 
 :root{
-    background-color: black;
+    background-color: whitesmoke;
     margin:0;
     padding:0;
     
+}
+
+h1{
+    /* color:#efecec */
+}
+
+body{
+    margin-left: 5%;
+    margin-right:5%;
+}
+
+.main-menu{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* justify-content: center; */
+    justify-items: center;
+   
+    align-content: center;
+    align-items: center;
+}
+
+.left-side,
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    height:25%;
+    width:55%
 }

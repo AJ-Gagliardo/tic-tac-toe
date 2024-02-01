@@ -146,7 +146,8 @@ function checkDiagonal(){
 function createPlayer(name, controller){
     return {
         name,
-    controller
+    controller,
+
 }
 }
 
