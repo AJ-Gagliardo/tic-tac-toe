@@ -33,8 +33,8 @@ const Gameboard = {
 
 const assignToken= {
     unassigned:0,
-    player1:1,
-    player2:2
+    player1:0,
+    player2:'X'
 }
 
 function startBoard(){
@@ -71,6 +71,7 @@ function select(row, column){
 if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
     Gameboard.board[row][column] = activePlayer;
+    board[row][column].textContent = activePlayer === 1 ? assignToken.player1 : assignToken.player2;
     activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
 }
 
