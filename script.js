@@ -159,22 +159,22 @@ const player2 = createPlayer('human');
 
 const leftPlayer = document.getElementById('player1-human');
 const leftBot = document.getElementById('player1-bot');
-console.log(leftBot)
+
 
 const rightPlayer = document.getElementById('player2-human');
 
 const rightBot = document.getElementById('player2-bot');
 
 const leftImg = document.getElementById('leftImg');
-console.log(leftImg);
+
 const rightImg = document.getElementById('rightImg');
-console.log(rightImg);
+
 
 const startGame = document.getElementById('startButton');
-console.log(startGame)
+
 
 const mainMenu = document.getElementById('mainMenu');
-console.log(mainMenu)
+
 
 
 // Event Listeners for the main menu
@@ -239,6 +239,21 @@ startGame.addEventListener('click',()=>{
 
 // Actual game UI
 
-// Create the gameboard
+const txtDisplay = document.getElementById('txtDisplay');
+console.log(txtDisplay)
+
+const cells = document.querySelectorAll('.cell');
+console.log(cells); 
+
+// for(i=0; i<cells.lenght; i++){
+    
+// }
+
+const board = [
+    [cells[0],cells[1],cells[2]],
+    [cells[3],cells[4],cells[5]],
+    [cells[6],cells[7],cells[8]]
+]
+;
 
 
