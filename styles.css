@@ -79,7 +79,9 @@ img{
 }
 
 .right-side div:hover,.left-side div:hover{
-    background-color: red;
+    background-color: crimson;
+    
+
 }
 
 #startButton{

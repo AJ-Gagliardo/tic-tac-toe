@@ -150,6 +150,9 @@ function createPlayer(controller){
 }
 }
 
+
+//  Dom Constants for main menu
+
 const player1 = createPlayer('human');
 const player2 = createPlayer('human');
 
@@ -162,7 +165,16 @@ const rightPlayer = document.getElementById('player2-human');
 
 const rightBot = document.getElementById('player2-bot');
 
+const leftImg = document.getElementById('leftImg');
+console.log(leftImg);
+const rightImg = document.getElementById('rightImg');
+console.log(rightImg);
 
+
+// Event Listeners for the main menu
+
+
+// changes the player 1 controller between human and Bot
 leftPlayer.addEventListener('click', ()=>{
     if(player1.controller === 'human') {
         return} 
@@ -170,6 +182,8 @@ leftPlayer.addEventListener('click', ()=>{
         player1.controller='human';
         leftBot.classList.remove('selected');
         leftPlayer.classList.add('selected');
+        leftImg.src = 'img/person2.png'
+       
     }
 });
 
@@ -181,9 +195,12 @@ leftBot.addEventListener('click',()=>{
         player1.controller='bot';
         leftPlayer.classList.remove('selected');
         leftBot.classList.add('selected');
+        leftImg.src = 'img/bot.png'
     }
 });
 
+
+// changes the player2 controller between human and Bot
 rightPlayer.addEventListener('click', ()=>{
     if(player2.controller==='human'){
         return;
@@ -192,6 +209,7 @@ rightPlayer.addEventListener('click', ()=>{
         player2.controller='human';
         rightPlayer.classList.add('selected');
         rightBot.classList.remove('selected');
+        rightImg.src = 'img/person2.png';
     }
 });
 
@@ -203,6 +221,7 @@ rightBot.addEventListener('click',()=>{
         player2.controller='bot';
         rightPlayer.classList.remove('selected');
         rightBot.classList.add('selected');
+        rightImg.src='img/bot.png';
     }
 })
 
