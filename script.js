@@ -143,18 +143,50 @@ function checkDiagonal(){
 //  Players
 
 
-function createPlayer(name, controller){
+function createPlayer(controller){
     return {
-        name,
     controller,
 
 }
 }
 
-const player1 = createPlayer('Anto', 'human');
+const player1 = createPlayer('human');
+const player2 = createPlayer('human');
+
+
+const leftPlayer = document.getElementById('player1-human');
+const leftBot = document.getElementById('player1-bot');
+console.log(leftBot)
+
+const rightPlayer = document.getElementById('player2-human');
+const rightBot = document.getElementById('player2-bot');
+
+
+leftPlayer.addEventListener('click', ()=>{
+    if(player1.controller === 'human') {
+        return} 
+    else {
+        player1.controller='human';
+        leftBot.classList.remove('selected');
+        leftPlayer.classList.add('selected');
+    }
+});
+
+leftBot.addEventListener('click',()=>{
+    if(player1.controller==='bot'){
+        return
+    }
+    else{
+        player1.controller='bot';
+        leftPlayer.classList.remove('selected');
+        leftBot.classList.add('selected');
+    }
+});
 
 
 
 
 
 //wondering if its a good idea to do factories for ui, will have to check that later
+
+
