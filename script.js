@@ -71,7 +71,7 @@ function select(row, column){
 if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
     Gameboard.board[row][column] = activePlayer;
-    // activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
+    activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
 }
 
 else{
@@ -170,6 +170,12 @@ console.log(leftImg);
 const rightImg = document.getElementById('rightImg');
 console.log(rightImg);
 
+const startGame = document.getElementById('startButton');
+console.log(startGame)
+
+const mainMenu = document.getElementById('mainMenu');
+console.log(mainMenu)
+
 
 // Event Listeners for the main menu
 
@@ -225,10 +231,14 @@ rightBot.addEventListener('click',()=>{
     }
 })
 
+startGame.addEventListener('click',()=>{
+    mainMenu.classList.add('hide')
+
+})
 
 
+// Actual game UI
 
-
-//wondering if its a good idea to do factories for ui, will have to check that later
+// Create the gameboard
 
 
