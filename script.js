@@ -159,6 +159,7 @@ const leftBot = document.getElementById('player1-bot');
 console.log(leftBot)
 
 const rightPlayer = document.getElementById('player2-human');
+
 const rightBot = document.getElementById('player2-bot');
 
 
@@ -182,6 +183,28 @@ leftBot.addEventListener('click',()=>{
         leftBot.classList.add('selected');
     }
 });
+
+rightPlayer.addEventListener('click', ()=>{
+    if(player2.controller==='human'){
+        return;
+    }
+    else{
+        player2.controller='human';
+        rightPlayer.classList.add('selected');
+        rightBot.classList.remove('selected');
+    }
+});
+
+rightBot.addEventListener('click',()=>{
+    if(player2.controller==='bot'){
+        return;
+    }
+    else{
+        player2.controller='bot';
+        rightPlayer.classList.remove('selected');
+        rightBot.classList.add('selected');
+    }
+})
 
 
 
