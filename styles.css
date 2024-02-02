@@ -3,6 +3,7 @@
 
 :root{
     background-color: whitesmoke;
+    /* background-color: black; */
     margin:0;
     padding:0;
     
@@ -37,7 +38,7 @@ body{
     justify-items: center;
     align-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 60% 20%;
+    grid-template-rows: 50% 20%;
     border: 4px solid black;
     border-radius: 10px;
 }
@@ -73,7 +74,7 @@ img{
 } */
 
 .selected{
-    background-color: rgba(220, 20, 60, 0.712);
+    background-color: rgba(220, 20, 60, 0.812);
     color:white;
 }
 
@@ -81,3 +82,21 @@ img{
     background-color: red;
 }
 
+#startButton{
+    margin-top:2vh;
+    background-color: rgba(220, 20, 60, 0.812) ;
+    /* color:white; */
+    width:8rem;
+    height: 4rem;
+    grid-column: 1/4;
+    border-radius: 6px;
+    color:white;
+    font-weight: 600;
+}
+
+#startButton:hover{
+    background-color: crimson;
+    width:8.5rem;
+    height:4.5rem;
+    font-weight:800;
+}
