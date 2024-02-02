@@ -21,7 +21,7 @@ body{
 
 .main-menu{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 40% 20% 40%;
     /* justify-content: center; */
     justify-items: center;
    
@@ -62,8 +62,22 @@ img{
 #player1-human,#player1-bot, #player2-human, #player2-bot{
     width:3rem;
     text-align: center;
-    padding: 4px;
+    padding: 1rem;
     border:3px solid black;
     /* padding:2rem; */
     border-radius: 6px;
 }
+
+/* .#player1-human:hover,#player1-bot:hover, #player2-human:hover, #player2-bot:hover{
+    background-color: crimson;
+} */
+
+.selected{
+    background-color: rgba(220, 20, 60, 0.712);
+    color:white;
+}
+
+.right-side div:hover,.left-side div:hover{
+    background-color: red;
+}
+
