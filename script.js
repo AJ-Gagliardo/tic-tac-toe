@@ -155,4 +155,6 @@ const player1 = createPlayer('Anto', 'human');
 
 
 
+
+
 //wondering if its a good idea to do factories for ui, will have to check that later
