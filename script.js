@@ -258,3 +258,44 @@ const board = [
 ;
 
 
+// board.forEach
+
+// function cellDomFactory(cellname, cell){
+// const cellname = document.get
+// }
+
+// board[0][1].addEventListener('click',()=>{
+//     select(0,1);
+// })
+
+startBoard()
+
+// for(i=0;i<Gameboard.columns;i++){
+//     for(j=0;j<Gameboard.rows;j++){
+//         // console.log(board[i][j])
+//         board[i][j].addEventListener('click',()=>{
+//             select([i][j]);
+//             console.log(`${i},${j}`)
+                
+//         })
+//     }
+
+for (let i = 0; i < Gameboard.columns; i++) {
+    for (let j = 0; j < Gameboard.rows; j++) {
+        // Create a function that captures the current values of i and j
+        (function (row, column) {
+            board[row][column].addEventListener('click', () => {
+                select(row, column);
+                console.log(`${row},${column}`);
+            });
+        })(i, j); // Immediately invoke the function with the current i and j values
+    }
+}
+    
+
+// }
+
+// for(i=0;i<Gameboard.columns;i++){
+//     for(j=0;j<Gameboard.rows;j++){
+//         console.log(board[i][j])
+//     }};
