@@ -321,3 +321,43 @@ for (let i = 0; i < Gameboard.columns; i++) {
 }
     
 
+
+// Bot opponent
+
+
+// logic would be select randmm [i][u] and if board [i][u] === 0 then select(i,u)
+// if false keep selecting other i,u
+
+
+function getRandomNumber(){
+    return Math.floor(Math.random()*3);
+
+}
+
+// function getTwoRandom(){
+
+//     // const i = getRandomNumber();
+//     // const j = getRandomNumber();
+//     // return {i,j}
+
+// }
+
+// logic should be like this:
+
+// while board[i][j] 
+
+function BotSelection(){
+
+let twoRandom = {i:getRandomNumber(),
+     j:getRandomNumber()};
+
+  while(board[twoRandom.i][twoRandom.j] !== 0){
+    twoRandom = {i:getRandomNumber(),j:getRandomNumber()};
+  }
+  
+  return twoRandom;
+
+}
+
+
+
