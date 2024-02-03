@@ -329,10 +329,10 @@ for (let i = 0; i < Gameboard.columns; i++) {
 // if false keep selecting other i,u
 
 
-function getRandomNumber(){
-    return Math.floor(Math.random()*3);
+// function getRandomNumber(){
+//     return Math.floor(Math.random()*3);
 
-}
+// }
 
 // function getTwoRandom(){
 
@@ -346,18 +346,38 @@ function getRandomNumber(){
 
 // while board[i][j] 
 
+// function BotSelection(){
+
+// let twoRandom = {i:getRandomNumber(),
+//      j:getRandomNumber()};
+
+//   while(board[twoRandom.i][twoRandom.j] !== 0){
+//     twoRandom = {i:getRandomNumber(),j:getRandomNumber()};
+//   }
+  
+//   return twoRandom;
+
+// }
+
+//loop approach is taking too much time to give  anumber I will try making a list of available cells and then pick somethign frokm it
+
+
+
 function BotSelection(){
 
-let twoRandom = {i:getRandomNumber(),
-     j:getRandomNumber()};
+    const availableCells=[]
+    
+    for (i=0;i<Gameboard.rows;i++){
+    for (j=0;j<Gameboard.columns;j++){
+            if(Gameboard.board[i][j] === 0){
+                availableCells.push({i,j})
+            }
+        }
+    }
 
-  while(board[twoRandom.i][twoRandom.j] !== 0){
-    twoRandom = {i:getRandomNumber(),j:getRandomNumber()};
-  }
-  
-  return twoRandom;
+    const randomPair = Math.floor(Math.random()*availableCells.length);
+    botRandom = availableCells[randomPair];
+    select(botRandom.i, botRandom.j);
+
 
 }
-
-
-
