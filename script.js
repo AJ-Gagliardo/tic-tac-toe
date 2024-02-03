@@ -63,7 +63,14 @@ function resetBoard(){
                 board[i][j].textContent = ''
             }
            
-        }
+        };
+        setTimeout(
+            function(){
+                activePlayer = 1;
+                txtDisplay.textContent = `Current Turn Player${activePlayer}` 
+            }, 1500
+        )
+
    
     }
     
@@ -82,9 +89,15 @@ if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
     Gameboard.board[row][column] = activePlayer;
     board[row][column].textContent = activePlayer === 1 ? assignToken.player1 : assignToken.player2;
+
+    setTimeout(
+function(){
+
     checkColumns();
     checkRows();
     checkDiagonal();
+}
+    , 500)
     activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
     txtDisplay.textContent = `Current Turn Player${activePlayer}` 
 }
@@ -127,7 +140,11 @@ function checkColumns(){
             Gameboard.board[0][col] === Gameboard.board[1][col] &&
             Gameboard.board[0][col] === Gameboard.board[2][col] 
             ){
-                return Gameboard.board[0][col];
+                // return Gameboard.board[0][col];
+                txtDisplay.textContent = `Player${Gameboard.board[0][col]} wins`;
+                alert(`Player${Gameboard.board[0][col]} wins`);
+                resetBoard();
+
             }
 
     }
@@ -141,14 +158,20 @@ function checkDiagonal(){
         Gameboard.board[0][0] === Gameboard.board[1][1] &&
         Gameboard.board[0][0] === Gameboard.board[2][2]
     ){
-        return Gameboard.board[0][0];
+        // return Gameboard.board[0][0];
+        txtDisplay.textContent = `Player${Gameboard.board[0][0]} wins`;
+        alert(`Player${Gameboard.board[0][0]} wins`);
+        resetBoard();
     }
     else if(
         Gameboard.board[0][2] !== 0 &&
         Gameboard.board[0][2] == Gameboard.board[1][1] &&
         Gameboard.board[0][2] == Gameboard.board[2][0]
     ){
-        return Gameboard.board[0][2]
+        // return Gameboard.board[0][2];
+        txtDisplay.textContent = `Player${Gameboard.board[0][2]} wins`;
+        alert(`Player${Gameboard.board[2][2]} wins`);
+        resetBoard();
     }
 
 
@@ -192,6 +215,8 @@ const startGame = document.getElementById('startButton');
 
 
 const mainMenu = document.getElementById('mainMenu');
+const gameMenu = document.getElementById('gameUI');
+
 
 
 
@@ -250,7 +275,9 @@ rightBot.addEventListener('click',()=>{
 })
 
 startGame.addEventListener('click',()=>{
-    mainMenu.classList.add('hide')
+    mainMenu.classList.add('hide');
+    gameMenu.classList.remove('hide')
+
 
 })
 
