@@ -56,8 +56,18 @@ function resetBoard(){
     // }
     Gameboard.board=[];
     startBoard();
+
+    for(i=0;i<Gameboard.columns;i++){
+        for(j=0;j<Gameboard.rows;j++){
+          
+                board[i][j].textContent = ''
+            }
+           
+        }
+   
+    }
     
-}
+
 
 //  function to mark one of the cells
 
@@ -72,7 +82,11 @@ if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
     Gameboard.board[row][column] = activePlayer;
     board[row][column].textContent = activePlayer === 1 ? assignToken.player1 : assignToken.player2;
+    checkColumns();
+    checkRows();
+    checkDiagonal();
     activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
+    txtDisplay.textContent = `Current Turn Player${activePlayer}` 
 }
 
 else{
@@ -94,7 +108,10 @@ function checkRows() {
             Gameboard.board[row][0] === Gameboard.board[row][1] &&
             Gameboard.board[row][0] === Gameboard.board[row][2]
         ) {
-            return Gameboard.board[row][0]; // Player 1 or 2 wins
+            // return Gameboard.board[row][0]; // Player 1 or 2 wins
+            txtDisplay.textContent = `Player${Gameboard.board[row][0]} wins`;
+            alert(`Player${Gameboard.board[row][0]} wins`);
+            resetBoard();
         }
     }
     return 0; // No winner in rows
@@ -258,27 +275,11 @@ const board = [
 ;
 
 
-// board.forEach
 
-// function cellDomFactory(cellname, cell){
-// const cellname = document.get
-// }
-
-// board[0][1].addEventListener('click',()=>{
-//     select(0,1);
-// })
 
 startBoard()
 
-// for(i=0;i<Gameboard.columns;i++){
-//     for(j=0;j<Gameboard.rows;j++){
-//         // console.log(board[i][j])
-//         board[i][j].addEventListener('click',()=>{
-//             select([i][j]);
-//             console.log(`${i},${j}`)
-                
-//         })
-//     }
+
 
 for (let i = 0; i < Gameboard.columns; i++) {
     for (let j = 0; j < Gameboard.rows; j++) {
@@ -293,9 +294,3 @@ for (let i = 0; i < Gameboard.columns; i++) {
 }
     
 
-// }
-
-// for(i=0;i<Gameboard.columns;i++){
-//     for(j=0;j<Gameboard.rows;j++){
-//         console.log(board[i][j])
-//     }};
