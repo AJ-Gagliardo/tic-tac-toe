@@ -44,6 +44,12 @@ function startBoard(){
             Gameboard.board[i][j]= 0;
         }
     }
+    setTimeout(function(){
+        console.log('start');
+                if (player1.controller === 'bot'){
+                    BotSelection();
+                }
+            },500)
     // setTimeout(function(){
 
         // if(player1.controller === 'bot' && activePlayer === 1){
@@ -72,12 +78,11 @@ function resetBoard(){
             }
            
         };
+        activePlayer = 1;
         setTimeout(
             function(){
-                activePlayer = 1;
                 txtDisplay.textContent = `Current Turn Player${activePlayer}` 
-            }, 1500
-        )
+            }, 1500)
 
    
     }
@@ -97,39 +102,42 @@ function select(row, column){
 
 if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
+   win=0;
     Gameboard.board[row][column] = activePlayer;
     board[row][column].textContent = activePlayer === 1 ? assignToken.player1 : assignToken.player2;
 
-    setTimeout(
-function(){
+    // setTimeout(
+// function(){
 
     checkColumns();
     checkRows();
     checkDiagonal();
 }
-    , 500)
+    // , 500)
     
     if(win===0){
-
+console.log('next turn');
         activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
         txtDisplay.textContent = `Current Turn Player${activePlayer}`;
-        setTimeout(
-            function(){
-                if(player2.controller === 'bot' && activePlayer === 2){
+        // setTimeout(
+            // function(){
+                if((player2.controller === 'bot' && activePlayer === 2)||(player1.controller === 'bot' && activePlayer===1)){
                     BotSelection();
                     
                 }
-            },550
-            ) 
+            // },45s0) 
+        }
+        else{
+            return
         }
 }
 
-else{
-    console.log('sorry cell already taken');
-    return; // doesn't let you put your token if cell is taken
-}
+// else{
+//     console.log('sorry cell already taken');
+//     return; // doesn't let you put your token if cell is taken
+// }
 
-}
+// }
 
 
 
@@ -147,6 +155,8 @@ function checkRows() {
             txtDisplay.textContent = `Player${Gameboard.board[row][0]} wins`;
             alert(`Player${Gameboard.board[row][0]} wins`);
             resetBoard();
+            win=1;
+            console.log(win)
         }
     }
     return 0; // No winner in rows
@@ -166,6 +176,8 @@ function checkColumns(){
                 txtDisplay.textContent = `Player${Gameboard.board[0][col]} wins`;
                 alert(`Player${Gameboard.board[0][col]} wins`);
                 resetBoard();
+                win=1;
+                console.log(win)
 
             }
 
@@ -184,6 +196,8 @@ function checkDiagonal(){
         txtDisplay.textContent = `Player${Gameboard.board[0][0]} wins`;
         alert(`Player${Gameboard.board[0][0]} wins`);
         resetBoard();
+        win=1;
+        console.log(win)
     }
     else if(
         Gameboard.board[0][2] !== 0 &&
@@ -194,6 +208,8 @@ function checkDiagonal(){
         txtDisplay.textContent = `Player${Gameboard.board[0][2]} wins`;
         alert(`Player${Gameboard.board[2][2]} wins`);
         resetBoard();
+        win=1;
+        console.log(win)
     }
 
 
@@ -299,6 +315,7 @@ rightBot.addEventListener('click',()=>{
 startGame.addEventListener('click',()=>{
     mainMenu.classList.add('hide');
     gameMenu.classList.remove('hide')
+    startBoard();
 
 
 })
@@ -326,7 +343,7 @@ const board = [
 
 
 
-startBoard()
+// startBoard()
 
 
 
@@ -339,7 +356,8 @@ for (let i = 0; i < Gameboard.columns; i++) {
                 console.log(`${row},${column}`);
             });
         })(i, j); // Immediately invoke the function with the current i and j values
-    }
+    };
+ 
 }
     
 
