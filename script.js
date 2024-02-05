@@ -106,14 +106,21 @@ if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
     Gameboard.board[row][column] = activePlayer;
     board[row][column].textContent = activePlayer === 1 ? assignToken.player1 : assignToken.player2;
 
-    // setTimeout(
-// function(){
+    setTimeout(
+function(){
+    }, 100)
 
     checkColumns();
     checkRows();
     checkDiagonal();
+    checkLastMove();
+    checkTie();
 }
-    // , 500)
+
+else{
+    console.log('sorry cell already taken');
+    return; // doesn't let you put your token if cell is taken
+}
     
     if(win===0){
 console.log('next turn');
@@ -130,12 +137,9 @@ console.log('next turn');
         else{
             return
         }
-}
-
-// else{
-//     console.log('sorry cell already taken');
-//     return; // doesn't let you put your token if cell is taken
-// }
+        
+      
+    }
 
 // }
 
@@ -213,6 +217,27 @@ function checkDiagonal(){
     }
 
 
+}
+
+let freeCells = []
+function checkLastMove(){
+    freeCells = []
+    for(i=0;i<Gameboard.rows;i++){
+        for(j=0;j<Gameboard.columns;j++){
+            if (Gameboard.board[i][j] ===0){
+                freeCells.push(Gameboard.board[i][j]);
+            }
+        }
+    };
+
+}
+
+function checkTie(){
+    console.log(`${freeCells.length} free cells`);
+    if(freeCells.length<1){
+        alert('tie!');
+        resetBoard();
+    }
 }
 
 
@@ -353,7 +378,7 @@ for (let i = 0; i < Gameboard.columns; i++) {
         (function (row, column) {
             board[row][column].addEventListener('click', () => {
                 select(row, column);
-                console.log(`${row},${column}`);
+                // console.log(`${row},${column}`);
             });
         })(i, j); // Immediately invoke the function with the current i and j values
     };
