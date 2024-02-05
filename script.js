@@ -44,6 +44,14 @@ function startBoard(){
             Gameboard.board[i][j]= 0;
         }
     }
+    // setTimeout(function(){
+
+        // if(player1.controller === 'bot' && activePlayer === 1){
+        //     BotSelection();
+        //     activePlayer = 2;
+            
+        // }
+    // },1000)
 
 }
 
@@ -79,11 +87,13 @@ function resetBoard(){
 //  function to mark one of the cells
 
 let activePlayer = 1;
-
+let win = 0;
 
 
 
 function select(row, column){
+
+
 
 if(Gameboard.board[row][column] === 0){ //checks if the cell is empty or not
 
@@ -98,8 +108,20 @@ function(){
     checkDiagonal();
 }
     , 500)
-    activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
-    txtDisplay.textContent = `Current Turn Player${activePlayer}` 
+    
+    if(win===0){
+
+        activePlayer===1 ? activePlayer = 2 :  activePlayer =1; // changes the turn to the other player once the player do a move
+        txtDisplay.textContent = `Current Turn Player${activePlayer}`;
+        setTimeout(
+            function(){
+                if(player2.controller === 'bot' && activePlayer === 2){
+                    BotSelection();
+                    
+                }
+            },550
+            ) 
+        }
 }
 
 else{
